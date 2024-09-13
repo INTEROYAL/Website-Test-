@@ -1,0 +1,2809 @@
+
+<!-- _________________________________________________HTML_________________________________________________________________________________________________________________________________ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO-PORTFOLIO</title>
+
+<!--   Header -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+<!-- Add Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!--   Init carousel 2 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        line-height: 1.6;
+        color: #fff;
+        background: #fff;   /* Adjust this for night and day */
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "-apple-system", "BlinkMacSystemFont", "Roboto", "Helvetica Neue", sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body.stop {
+        overflow: hidden;
+    }
+
+    .navbar-inverse {
+        background-color: rgba(255, 255, 255, 0);
+        background-image: none;
+        /* border-color: #003300; */
+        height: 120px; /* Doubling the height of the header */
+        position: absolute; /* Ensure relative positioning for pseudo-element */
+        width: 100%; /* Ensure full width */
+    }
+
+    .navbar-inverse .navbar-nav>.active>a,
+    .navbar-inverse .navbar-nav>.open>a,
+    .navbar-inverse .navbar-nav>.open>a:hover,
+    .navbar-inverse .navbar-nav>.open>a:focus {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-nav>li>a {
+        color: #fff;
+        line-height: 90px; /* Vertically centering the nav items */
+        font-size: clamp(10px, 0.85vw, 17px);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 100;
+    }
+
+    .navbar-inverse .navbar-nav>li>a:hover,
+    .navbar-inverse .navbar-nav>li>a:focus {
+        color: #848c9c;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+        line-height: 90px; /* Vertically centering the brand */
+        font-size: clamp(14px, 0.85vw, 17px);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 100;
+    }
+
+    .navbar-inverse .navbar-brand:hover {
+        color: #848c9c;
+    }
+
+    .navbar {
+        border: none; /* Ensure no border */
+    }
+
+    .navbar-toggle {
+        margin-top: 35px; /* Center the toggle button vertically */
+    }
+
+    .header-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .name-top, .name-bottom {
+        font-size: clamp(14px, 2vw, 22px); /* Adjust font size */
+        font-weight: 100; /* Adjust font weight */
+        font-family: 'Open Sans', sans-serif; /* Adjust font family */
+        color: #fff; /* Adjust text color */
+        line-height: 1; /* Adjust line height for closer vertical spacing */
+    }
+
+    .name-top::first-letter,
+    .name-bottom::first-letter {
+       font-size: clamp(18px, 4vw, 30px);  /* Larger font size for first letter */
+    }
+
+    /* Define CSS variables for default screen size */
+    :root {
+        --navbar-header-padding: 8vw; /* Adjust based on the padding-left of .navbar-header */
+        --navbar-nav-padding: 8vw; /* Adjust based on the padding-right of .navbar-nav */
+    }
+
+    /* Apply padding to navbar elements */
+    .navbar-header {
+        padding-left: calc(var(--navbar-header-padding) - 15px); /* Use CSS variable for padding-left */
+    }
+
+    .navbar-nav {
+        padding-right: calc(var(--navbar-nav-padding) - 15px);
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+    }
+  
+   .navbar-nav>li {
+        margin-right: 1px; /* Default spacing between items */
+    }
+
+    /* Design line under header text */
+    .navbar::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: var(--navbar-header-padding); /* Adjusted left position with pixels */
+        right: var(--navbar-nav-padding); /* Align with the right edge of .navbar-nav */
+        width: calc(100% - var(--navbar-header-padding) - var(--navbar-nav-padding)); /* Adjusted width with pixels */
+        height: 1px; /* Adjust the thickness of the line */
+        box-shadow: 0 0.3px 0 0 #fff;
+        background-color: transparent;
+       .your-line-class {
+    top: 6vw; /* Default positioning for larger screens */
+    /* Add other styles as needed */
+}
+
+@media (max-width: 768px) {
+    .your-line-class {
+        top: 1vw; /* Adjust for smaller screens */
+    }
+}
+   
+    }
+
+    /* Hamburger Menu Styles */
+    .menu-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #fff; /* Ensure same color as menu text */
+        font-size: 15px; /* Match font size with menu text */
+        padding: 15px; /* Adjust padding as needed */
+        height: 100%; /* Make sure button spans the full height of the navbar */
+        position: relative; /* To allow absolute positioning of hamburger menu */
+        flex-direction: row-reverse; /* Reverse the order of children */
+        gap: 10px; /* Adds spacing between flex items */
+        transition: color 0.3s; /* Smooth transition for text color */
+    }
+
+    .hamburger-menu {
+        position: relative; /* Position relative to the menu button */
+        width: 25px; /* Width to contain the lines properly */
+        height: 15px; /* Adjust height as needed */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center lines vertically within the button */
+    }
+
+    .line {
+        width: 20px; /* Adjust width as needed */
+        height: 2px; /* Adjust thickness as needed */
+        background-color: #fff; /* Ensure same color as menu text */
+        transition: background-color 0.3s, transform 0.3s; /* Smooth transition for color and transformation */
+        position: absolute; /* Position lines absolutely within the container */
+        left: 0;
+    }
+
+    #line1 {
+        top: 0; /* Top position for the first line */
+    }
+
+    #line2 {
+        top: 50%; /* Center line vertically */
+        transform: translateY(-50%); /* Center vertically within the container */
+    }
+
+    #line3 {
+        bottom: 0; /* Bottom position for the third line */
+    }
+
+    /* Hover effect for the menu button */
+    .menu-button:hover {
+        color: #848c9c; /* Change text color on hover */
+    }
+
+    .menu-button:hover .hamburger-menu .line {
+        background-color: #848c9c; /* Change line color on hover */
+    }
+
+    /* Transform lines into an "X" */
+    .menu-button.open .hamburger-menu #line1 {
+        transform: rotate(45deg); /* Rotate line1 to form one part of the "X" */
+        top: 50%; /* Center line1 vertically */
+        transform: translateY(-50%) rotate(45deg); /* Center vertically and rotate */
+    }
+
+    .menu-button.open .hamburger-menu #line2 {
+        opacity: 0; /* Hide the middle line */
+    }
+
+    .menu-button.open .hamburger-menu #line3 {
+        transform: rotate(-45deg); /* Rotate line3 to form the other part of the "X" */
+        bottom: 50%; /* Center line3 vertically */
+        transform: translateY(50%) rotate(-45deg); /* Center vertically and rotate */
+    }
+
+    /* Change MENU text to CLOSE */
+    .menu-button.open {
+        color: #848c9c; /* Color of the text when menu is open */
+    }
+
+  
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        padding-right: calc(var(--navbar-nav-padding) - 10px);
+        display: flex;
+        justify-content: flex-end; /* Align items to the right */
+        margin-top: -117px; /* Increase the position height by 20px */
+    }
+   .navbar-nav>li {
+            margin-right: -20px; /* Reduced spacing between items */
+        }
+
+       
+        }
+    }
+
+  
+
+    
+       
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+        
+/* _________________________________________________HOVER MENU CSS_____________________________________________________ */
+        #page {
+            position: relative;
+             transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+            margin-top: 10px; /* Adjust the margin to accommodate the header banner height**** BAR UNDER TOP CAROUSEL */
+        }
+    
+    
+ /* sticky menu background fade  */
+        #page.menuopen {
+            opacity: .9; /* Reduced opacity for darker tint */
+            filter: brightness(0.10) blur(1px); /* Adjust brightness and blur */
+            transform: scale(1.2);
+           
+        }
+
+      
+      /* menu button  */
+        nav {
+            
+            display: flex;
+            height: 5vw;     /* menuWIdthbutton  */
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            position: fixed;
+            top: 130px;    /* Navmenu height  */
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto; /* Changed to auto */
+            /*background-color: rgba(255, 255, 255, 0.2); /* nav menu background */
+            border-radius: 5px;
+            z-index: 9;
+            
+            border: 1px solid rgba(255, 255, 255, 0);
+            transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
+        }
+/* _________NAV DROPDOWN WINDOW (Navigation Links)__________ */
+       nav a {       
+           
+            display: none;
+            
+        }
+
+    nav a.show {
+    display: inline-block; /* Show navigation links when .show class is applied */
+    /* Add other styles as needed */
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    padding: 10px 20px;
+    line-height: 1;
+    font-size: clamp(10px, 1.3vw, 19px); /* Font size based on viewport width */
+    letter-spacing: 2px; /* Space between letters */
+    text-transform: capitalize;
+    transition: .3s all cubic-bezier(0.075, 0.82, 0.165, 1) .6s;
+}
+
+/* Media query for reducing letter spacing and word spacing at smaller screen sizes */
+@media (max-width: 768px) {
+    nav a.show {
+       margin-left: -16px;
+         margin-right: -18px; /* Reduced spacing between items */
+      font-size: clamp(0.8px, 1.8vw, 13px)
+    }
+}
+
+        nav button {
+            -webkit-appearance: none;
+            background: rgba(0, 0, 0, .3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            position: absolute;
+            z-index: 99;
+            left: 0;
+            margin: auto;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            transition: transform 1s ease-in-out;    /*-- THIS CONTROLS THE BUTTON APPEARANCE style  original:    .3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s; --*/   
+            transform: scale(0);
+        }
+    
+    nav button .menu-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 18px; /* Adjusted for better fit */
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute; /* Absolute positioning within the button */
+    top: 31%;
+    left: 13%;
+    transform: translate(-50%, -50%); /* Centering text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-align: center;
+}
+
+     /*   nav button span {
+            width: 40%;
+            background: #fff;
+            height: 2px;
+            display: block;
+            margin: 5px auto;
+            transform: scalex(0);
+            transition: .6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, .3s margin ease-in 0s;
+        }
+    */
+
+        nav button:hover {
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        nav button:hover span {
+            margin: 10px auto;
+          
+        }
+
+       
+
+        header.sticky #logo {
+            top: 0;
+            transform: scale(.8);
+            opacity: 0; 
+            transition-delay: 0.5s;
+        }
+
+        header.sticky nav {
+            top: 20px;
+            padding: 0;
+            width: 90px;
+            height: 90px;
+            transition-delay: 0.5s;
+        }
+
+        header.sticky nav button {
+            transform: scale(1);
+            transition-delay: 0.6s;
+        }
+
+        header.sticky nav button span {
+            transform: scalex(1);
+            transition: .6s transform cubic-bezier(0.075, 0.82, 0.165, 1) .8s, .3s margin ease-in 0s;
+        }
+
+        header.sticky nav a {
+            padding: 0;
+            opacity: 0;
+            letter-spacing: 0px;
+            transform: scale(0.3);
+            transition-delay: 0.2s;
+        }
+
+      
+/* <!-- _________________________________________________ CAROUSEL CSS TOPICS_________________________________________________________________________________________________________________________________ -->
+
+/* General Carousel Styles */
+    section {
+            display: flex;
+            min-height: 100vh; /*--this changes general carousel page height--*/
+            padding: 50px; 
+            justify-content: center;
+            align-items: center;
+            background: #222;
+            color: #fff;
+            position: relative;
+        }
+        section:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #000;
+            opacity: .5;
+            height: 100%;
+            width: 100%;
+        }
+
+.carousel-section {
+  @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+  }
+
+  body {
+    background-color: #eaeaea;
+  }
+
+  .carousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    max-width: 900px;
+    max-height: 550px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-item {
+    visibility: hidden;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-end;
+    position: absolute;
+    background-color: #fff;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  .carousel-item__info {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    order: 1;
+    left: 0;
+    margin: auto;
+    padding: 0 40px;
+    width: 40%;
+  }
+
+  .carousel-item__image {
+    width: 100%;
+    height: 100%;
+    order: 2;
+    align-self: flex-end;
+    flex-basis: 60%;
+    -webkit-order: 2;
+    -webkit-align-self: flex-end;
+    -webkit-flex-basis: 60%;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+
+/* Specific styling for images in the Resume carousel */
+#Resume .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 1000px; /* Set a maximum height for the carousel item */
+}
+/* Specific styling for images in the Projects carousel */
+#Projects .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 1000px; /* Set a maximum height for the carousel item */
+}
+/* Specific styling for images in the Cloud carousel */
+#Cloud .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 1000px; /* Set a maximum height for the carousel item */
+}
+
+/* Specific styling for images in the Projects carousel */
+#DevOps .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 800px; /* Set a maximum height for the carousel item */
+    margin: 4vw;
+   
+   
+}
+
+/* Specific styling for images in the Projects carousel */
+#Frontend .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 1000px; /* Set a maximum height for the carousel item */
+}
+/* Specific styling for images in the Projects carousel */
+#Education .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+    margin: 6vw;
+}
+
+/* Specific styling for images in the Projects carousel */
+#Solutions .carousel-item__image {
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 800px; /* Set a maximum height for the carousel item */
+    margin: 4vw;
+
+}
+  .carousel-item__subtitle, .carousel-item__title, .carousel-item__description, .carousel-item__btn {
+    transform: translateY(25%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.6s all ease-in-out;
+  }
+
+  .carousel-item__subtitle {
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 3px;
+    font-size: 0.56vw;
+    line-height: 1vw;
+    text-transform: uppercase;
+    margin: 0;
+    color: #7E7E7E;
+    font-weight: 700;
+  }
+
+  .carousel-item__title {
+    margin: 15px 0 0 0;
+    font-family: 'Playfair Display', serif;
+    font-size:  clamp(1px, 2.5vw, 50px);
+    line-height: 2vw;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #2C2C2C;
+  }
+
+  .carousel-item__description {
+    margin-top: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8vw;
+    color: #696767;
+    line-height: 1.3vw;
+    margin-bottom: 35px;
+  }
+
+  .carousel-item__container {}
+
+  .carousel-item__btn {
+    width: 35%;
+    color: #2C2C2C;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 3px;
+    font-size: 0.6vw;
+    text-transform: uppercase;
+    margin: 0px;
+     line-height: 1vw;
+    width: 35%;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .carousel__nav {
+    position: absolute;
+
+    left:    clamp(0.05vw, 26vw, 26vw);
+    bottom: 2vw;
+    
+    z-index: 2;
+    background-color: #fff; /* Make the background transparent or keep it white as per design */
+}
+
+  .carousel__icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2vw;
+    fill: #5d5d5d;
+  }
+
+  .carousel__arrow {
+    cursor: pointer;
+    display: inline-block;
+    padding: 11px 15px;
+    position: relative;
+  }
+
+  .carousel__arrow:nth-child(1):after {
+    content: '';
+    right: -3px;
+    position: absolute;
+    width: 1px;
+    background-color: #b0b0b0;
+    height: 14px;
+    top: 50%;
+    margin-top: -7px;
+  }
+
+  .active {
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .active .carousel-item__subtitle,
+  .active .carousel-item__title,
+  .active .carousel-item__description,
+  .active .carousel-item__btn {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  
+  
+  
+   /* HOME SECTION CAROUSEL VIDEO_______________________________________________________________________________________________________________________________________________ */
+ 
+/* Base Styles for Carousel Item */
+.carousel-item--video {
+  position: relative; /* Container positioning for child absolute positioning */
+}
+
+/* Video Styles */
+.carousel-item--video .carousel-item__video {
+  width: 100%;
+  height: 950px; /* Adjusted height */
+  object-fit: cover; /* Ensures the video covers the entire container */
+  display: block; /* Ensure it's a block element */
+}
+
+/* Info Overlay Styles */
+.carousel-item--video .carousel-item__info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Ensure text is readable over the video */
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+}
+
+/* Image Styles */
+.carousel-item--video .carousel-item__image {
+    width: clamp(120px, 14vw, 190px); /* Minimum 100px, fluid 14vw, maximum 200px */
+    height: clamp(120px, 14vw, 190px); /* Minimum 100px, fluid 14vw, maximum 200px */
+    border-radius: 50%;
+    position: absolute; /* Position absolutely within the parent */
+    top: calc(27% + 2vw); /* Adjust this value for smoother vertical positioning */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the position to truly center */
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: top 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out; /* Smooth transition for top, width, and height */
+}
+
+
+/* Title Styles */
+.carousel-item--video .carousel-item__title {
+  position: absolute;
+  top: calc(17vw + 4%) ;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(1.2vw, 1.4vw, 1.4vw); /* Font size based on viewport width */
+  line-height: 4vw; /* Line height based on viewport width */
+  letter-spacing: 0.3vw; /* Letter spacing based on viewport width */
+  font-weight: 100;
+  color: #fff;
+}
+  
+  /* Description Top Styles */
+.carousel-item--video .carousel-item__description-top {
+  position: absolute;
+  top: calc(36% + 1vw + 3.5vw); /* Positioned below the title with additional margin */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(1vw, 1.2vw, 1.2vw); /* Font size based on viewport width */
+  color: #fff;
+  line-height: 2.2vw; /* Line height based on viewport width */
+  width: 80vw; /* Width based on viewport width */
+  padding: 2.5vw; /* Padding based on viewport width */
+  box-sizing: border-box; /* Ensure padding does not affect width calculation */
+}
+
+/* Description Styles */
+.carousel-item--video .carousel-item__description {
+  position: absolute;
+  top: calc(37.5% + 1vw + 8vw); /* Positioned below the top description with additional margin */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Open Sans', sans-serif;
+  font-size: clamp(1vw, 1.2vw, 1.2vw); /* Font size based on viewport width */
+  color: #fff;
+  line-height: 1.5vw; /* Line height based on viewport width */
+  width: 55vw; /* Width based on viewport width */
+  padding: 0.5vw; /* Padding based on viewport width */
+  box-sizing: border-box; /* Ensure padding does not affect width calculation */
+}
+
+
+  /* Default Button Styles */
+.carousel-item--video .carousel-item__btn {
+  position: absolute;
+  top: calc(30% + 1vw + 24vw); /* Default position for larger screens */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5vw 2vw; /* Padding based on viewport width */
+  font-size: 0.7vw; /* Font size based on viewport width */
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 2vw; /* Border radius based on viewport width */
+  width: 15vw; /* Width based on viewport width */
+  box-sizing: border-box; /* Ensure padding does not affect width calculation */
+}
+  
+  
+  /* Media Queries */
+  
+   /* 2600px */
+@media (max-width: 3000px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 1.5vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(33.5% + 1.9vw); /* Adjust the text position similarly */
+        font-size: 1.2vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(36% + 1.6vw); /* Adjust for smaller screens */
+        font-size: 0.95vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(45% + 2.3vw); /* Adjust the text position similarly */
+        font-size: 0.9vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 47vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(25% + 2vw + 21vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.6vw; /* Adjust font size if needed */
+    width: 12vw; /* Adjust width if needed */
+    height: 1.6vw; /* Default height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+}
+  
+     /* 2300px */
+@media (max-width: 2300px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 1.5vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(36% + 1.5vw); /* Adjust the text position similarly */
+        font-size: 1.2vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(37% + 2vw); /* Adjust for smaller screens */
+        font-size: 0.95vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(42% + 4vw); /* Adjust the text position similarly */
+        font-size: 0.95vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 50vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(25% + 2vw + 24vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.7vw; /* Adjust font size if needed */
+    width: 14vw; /* Adjust width if needed */
+  }
+}
+  
+   /* 1900px */
+@media (max-width: 1900px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 1.5vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(36% + 2vw); /* Adjust the text position similarly */
+        font-size: 1.4vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(37% + 3vw); /* Adjust for smaller screens */
+        font-size: 1.2vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(44% + 4vw); /* Adjust the text position similarly */
+        font-size: 1.2vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 55vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 25vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.8vw; /* Adjust font size if needed */
+    width: 16vw; /* Adjust width if needed */
+  }
+}
+  
+  
+  
+  /* 1800px */
+@media (max-width: 1800px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 1.5vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(36% + 2vw); /* Adjust the text position similarly */
+        font-size: 1.4vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(37% + 2.5vw); /* Adjust for smaller screens */
+        font-size: 1.2vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(44% + 2.5vw); /* Adjust the text position similarly */
+        font-size: 1.1vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 55vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 24vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.7vw; /* Adjust font size if needed */
+    width: 16vw; /* Adjust width if needed */
+  }
+}
+  
+  
+     /* 1650px */
+@media (max-width: 1650px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(23% + 4vw); /* Slightly smaller adjustment */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(30% + 6vw); /* Slightly smaller adjustment */
+        font-size: 1.6vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(32% + 6vw); /* Slightly smaller adjustment */
+        font-size: 1.3vw; /* Adjust font size */
+        width: 85vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(36% + 7.5vw); /* Slightly smaller adjustment */
+        font-size: 1.3vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 68vw; /* Adjust width */
+    }
+   .carousel-item--video .carousel-item__btn {
+    top: calc(24% + 2vw + 27vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.8vw; /* Adjust font size if needed */
+    width: 18vw; /* Adjust width if needed */
+  }
+  }
+
+  
+    /* 1450px */
+@media (max-width: 1450px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 1vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(36% + 1.8vw); /* Adjust the text position similarly */
+        font-size: 1.8vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(39% + 2.2vw); /* Adjust for smaller screens */
+        font-size: 1.6vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(47% + 3.5vw); /* Adjust the text position similarly */
+        font-size: 1.6vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 60vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 32vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.8vw; /* Adjust font size if needed */
+    width: 18vw; /* Adjust width if needed */
+  }
+}
+
+
+/* 1350px */
+@media (max-width: 1350px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(28% + 0.4vw); /* Adjust for smaller screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(37% + 0.1vw); /* Adjust the text position similarly */
+        font-size: 2vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(38% + 1.3vw); /* Adjust for smaller screens */
+        font-size: 1.8vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(45% + 3vw); /* Adjust the text position similarly */
+        font-size: 1.8vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 65vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 33vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 0.8vw; /* Adjust font size if needed */
+    width: 20vw; /* Adjust width if needed */
+  }
+  }
+
+  /* 1240px */
+@media (max-width: 1240px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(26% + 1.3vw); /* Slightly smaller adjustment */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(33% + 2vw); /* Slightly smaller adjustment */
+        font-size: 2vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(36% + 2.2vw); /* Slightly smaller adjustment */
+        font-size: 1.8vw; /* Adjust font size */
+        width: 90vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(42% + 3.8vw); /* Slightly smaller adjustment */
+        font-size: 2vw; /* Adjust font size */
+        line-height: 1.8vw; /* Line height based on viewport width */
+        width: 75vw; /* Adjust width */
+    }
+   .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 32vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 1vw; /* Adjust font size if needed */
+    width: 21vw; /* Adjust width if needed */
+  }
+  }
+  
+  
+  
+  
+/* 1000px */
+@media (max-width: 1000px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(23% + 1.2vw); /* Slightly smaller adjustment */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(30% + 1.8vw); /* Slightly smaller adjustment */
+        font-size: 2.5vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(32% + 2.8vw); /* Slightly smaller adjustment */
+        font-size: 2vw; /* Adjust font size */
+        width: 85vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(39% + 3.8vw); /* Slightly smaller adjustment */
+        font-size: 2.2vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 75vw; /* Adjust width */
+    }
+   .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 34vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 1.2vw; /* Adjust font size if needed */
+    width: 21vw; /* Adjust width if needed */
+  }
+  }
+
+/* 900px */
+@media (max-width: 900px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(22% + 1vw); /* Further reduced movement */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(27% + 1.5vw); /* Further reduced movement */
+        font-size: 3vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(29% + 2.5vw); /* Further reduced movement */
+        font-size: 2.2vw; /* Adjust font size */
+        width: 80vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(33% + 4vw); /* Further reduced movement */
+        font-size: 2.3vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 70vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 32vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 1vw; /* Adjust font size if needed */
+    width: 20vw; /* Adjust width if needed */
+    }
+    }
+  
+  
+  /* 768px */
+@media (max-width: 768px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(22% + 1vw); /* Further reduced movement */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(27% + 1.5vw); /* Further reduced movement */
+        font-size: 3vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(29% + 2.5vw); /* Further reduced movement */
+        font-size: 2.2vw; /* Adjust font size */
+        width: 80vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(33% + 3vw); /* Further reduced movement */
+        font-size: 2.3vw; /* Adjust font size */
+        line-height: 2vw; /* Line height based on viewport width */
+        width: 70vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 2vw + 30vw); /* Adjusted position for medium screens */
+    padding: 0.7vw 2vw; /* Adjust padding if needed */
+    font-size: 1vw; /* Adjust font size if needed */
+    width: 20vw; /* Adjust width if needed */
+    }
+    }
+  
+  
+  
+/* 576px */
+@media (max-width: 576px) {
+    .carousel-item--video .carousel-item__image {
+        top: calc(22% + 0.5vw); /* Minimal adjustment for very small screens */
+    }
+    .carousel-item--video .carousel-item__title {
+        top: calc(26% + 3vw); /* Minimal adjustment for very small screens */
+        font-size: 3vw; /* Adjust font size */
+    }
+    .carousel-item--video .carousel-item__description-top {
+        top: calc(27% + 2vw); /* Minimal adjustment for very small screens */
+        font-size: 2.5vw; /* Adjust font size */
+        width: 100vw; /* Adjust width */
+    }
+    .carousel-item--video .carousel-item__description {
+        top: calc(30.5% + 2vw); /* Minimal adjustment for very small screens */
+        font-size: 2.5vw; /* Adjust font size */
+        line-height: 2.2vw; /* Adjust line height */
+        width: 80vw; /* Adjust width */
+    }
+      .carousel-item--video .carousel-item__btn {
+    top: calc(30% + 3vw + 30vw); /* Further adjusted position for small screens */
+    padding: 1vw 2vw; /* Adjust padding if needed */
+    font-size: 1.2vw; /* Adjust font size if needed */
+    width: 26vw; /* Adjust width if needed */
+
+    }
+  }
+
+
+
+
+
+
+
+ 
+
+
+
+
+  
+  /* _________V1 of About section CSS__________ */
+  
+  
+  
+  /* .carousel-item--video {
+  position: relative;
+  overflow: hidden; Ensures the video does not overflow the container
+}
+  
+  .carousel-item--100.carousel-item--video .carousel-item__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container *
+}
+
+.carousel-item--100.carousel-item--video {
+  position: relative;
+}
+
+.carousel-item--100.carousel-item--video .carousel-item__info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; Ensure text is readable over the video
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5); Optional: Add a semi-transparent background for readability
+}
+
+.carousel-item--100.carousel-item--video .carousel-item__container {
+  padding: 20px;
+}
+
+.carousel-item--100.carousel-item--video .carousel-item__btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+ */
+
+
+
+
+  .carousel-item--1 .carousel-item__image {
+    background-image: url('https://images.pexels.com/photos/991012/pexels-photo-991012.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    
+    }
+  
+  .carousel-item--21 .carousel-item__image { 
+    background-image: url('https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/field/image/2022/06/silas-baisch-oczvgbqcjky-unsplash.jpg');
+}
+  
+ 
+/*     RESUME      */  
+  
+  .carousel-item--11 .carousel-item__image {
+    background-image: url('Resume Cover.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+
+}
+  .carousel-item--12 .carousel-item__image {
+    background-image: url('Resumep1.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+
+}
+  .carousel-item--13 .carousel-item__image {
+    background-image: url('Resumep2.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+
+}
+  .carousel-item--14 .carousel-item__image {
+    background-image: url('Resumep3.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+   
+}
+
+
+
+
+
+
+ /*     PROJECTS      */
+
+ .carousel-item--160 .carousel-item__image {
+    background-image: url('frontendsandbox2.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+
+.carousel-item--161 .carousel-item__image {
+    background-image: url('projectsfront.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+.carousel-item--162 .carousel-item__image {
+    background-image: url('clouds3.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+.carousel-item--163 .carousel-item__image {
+    background-image: url('grafana1.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+ 
+.carousel-item--164 .carousel-item__image {
+    background-image: url('travel.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+.carousel-item--165 .carousel-item__image {
+    background-image: url('sabs.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+
+
+
+ /*     CLOUD      */
+
+.carousel-item--200 .carousel-item__image {
+    background-image: url('cloud.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+
+
+.carousel-item--201 .carousel-item__image {
+    background-image: url('AWSCONSOLE.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+    .carousel-item--202 .carousel-item__image {
+    background-image: url('AZURE.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */
+}
+    .carousel-item--203 .carousel-item__image {
+    background-image: url('GCP.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+.carousel-item--204 .carousel-item__image {
+    background-image: url('terraform.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+    
+}
+
+
+
+
+/* DevOps */  
+
+.carousel-item--800 .carousel-item__image {
+    background-image: url('dev2.p.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--801 .carousel-item__image {
+    background-image: url('github.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--802 .carousel-item__image {
+    background-image: url('clouds3.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--803 .carousel-item__image {
+    background-image: url('.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--804 .carousel-item__image {
+    background-image: url('ci-cd2.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--805 .carousel-item__image {
+    background-image: url('ansible.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+ 
+
+.carousel-item--806 .carousel-item__image {
+    background-image: url('eks.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--807 .carousel-item__image {
+    background-image: url('grafana1.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--808 .carousel-item__image {
+    background-image: url('sast.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+ 
+
+
+
+
+
+
+
+/*    FRONTEND    */ 
+
+
+.carousel-item--300 .carousel-item__image {
+    background-image: url('travel.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+
+
+.carousel-item--301 .carousel-item__image {
+    background-image: url('frontrough.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+ 
+.carousel-item--302 .carousel-item__image {
+    background-image: url('frontsolutions.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+ 
+.carousel-item--303 .carousel-item__image {
+    background-image: url('sandbox.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+ 
+
+
+
+
+
+
+
+/*    EDUCATION    */ 
+
+.carousel-item--400 .carousel-item__image {
+    background-image: url('educated.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--401 .carousel-item__image {
+    background-image: url('bootcourse.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+.carousel-item--402 .carousel-item__image {
+    background-image: url('diploma2.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}
+
+
+/*    Solutions  */ 
+.carousel-item--1000 .carousel-item__image {
+    background-image: url('cloudsolutions.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}  
+
+
+
+.carousel-item--1001 .carousel-item__image {
+    background-image: url('frontsolutions.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}  
+
+.carousel-item--1005 .carousel-item__image {
+    background-image: url('audi.png');
+    background-size: contain; /* Ensure entire image is visible */
+    background-position: center center; /* Center the image */
+    max-height: 700px; /* Set a maximum height for the carousel item */  
+}  
+
+
+
+.carousel-item--3 .carousel-item__image {
+    background-image: url('https://images.pexels.com/photos/92733/pexels-photo-92733.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  }
+
+  .carousel-item--4 .carousel-item__image {
+    background-image: url('https://images.pexels.com/photos/1008732/pexels-photo-1008732.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  }
+
+  .carousel-item--5 .carousel-item__image {
+    background-image: url('https://images.pexels.com/photos/1029614/pexels-photo-1029614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  }
+  
+
+
+
+}
+
+       
+  </style>
+</head>
+
+<body>
+  
+     <!-- _________________________________________________HTML _________________________________________________________________________________________________________________________________ -->
+   
+    <!-- Header Banner -->
+<div id="header-banner"></div>
+
+<header id="myHeader" class="">
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Menu Button with Hamburger Menu -->
+                <a href="#" class="navbar-brand menu-button" id="menuButton">
+                    <span id="menuText">MENU</span>
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        <div class="line" id="line1"></div>
+                        <div class="line" id="line2"></div>
+                        <div class="line" id="line3"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="header-text">
+                <div class="name-top">EAN</div>
+                <div class="name-bottom">THOMPSON</div>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" id="emailLink">EMAIL</a></li>
+                <li><a href="https://www.linkedin.com/in/eanthomp/" target="_blank">LINKEDIN</a></li>
+                <li><a href="https://github.com/INTEROYAL/Portfolio-Website.git" target="_blank">GITHUB</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <!-- _________________________________________________HTML_________________________________________________________________________________________________________________________________ -->
+
+    <!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+            
+
+            <div class="swiper-slide"><img src="ADI.png" alt="Photo 1"></div>
+             <div class="swiper-slide"><img src="./images/PRESS.png" alt=" Photo 2"></div> 
+
+            <div class="swiper-slide"><img src="DRepublic .png" alt=" Photo 7"></div>
+            <div class="swiper-slide"><img src="PRESS.png" alt=" Photo 8"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div> -->
+
+    <!-- _________________________________________________HTML _________________________________________________________________________________________________________________________________ -->
+
+   
+      
+      
+      
+  
+        <!-- <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 714.6 401.1"> -->
+            <!-- <img id="logo" src="CROWNLOGO.png" alt="Crown Logo"> -->
+
+            
+        <path fill="#fff" fill-rule="evenodd"
+            d="M502.8 0h211.8l-23 39.7-138.5 240L483 401H342.7L413 279.6 251.4 0h140.3L483 158.1 538.6 62 502.8 0Zm-201 279.6L140.1 0H0l231.7 401 70-121.4Z" />
+        </svg>
+        <nav>
+            
+           <a href="#Home">HOME</a>
+           <a href="#Resume">RESUME</a>
+           <a href="#Projects">PROJECTS</a>
+          <a href="#Cloud">CLOUD</a>
+          <a href="#DevOps">DEVOPS</a>
+          <a href="#Frontend">FRONTEND</a>
+          <a href="#Education">EDUCATION</a>
+          <a href="#Solutions">SOLUTIONS</a>
+     
+           
+        
+          
+          
+            <button id="openmenu">
+              <!--  <span></span-->
+              
+             <!--   <span></span>-->
+              <span class="menu-text">MENU</span> <!-- Only text inside the button -->
+            </button>
+        </nav>
+    </header>
+   <!-- _________________________________________________HTML _________________________________________________________________________________________________________________________________ -->
+<!--     Main Sections 
+     <div id="page" class="">
+    <section id="About" style="background-image:url(https://assets.codepen.io/214624/vision.jpg)">
+        <h1>About.</h1>
+    </section> 
+       -->
+       
+  <!--   <div id="page" class="">
+        <section id="About">
+            <video autoplay muted loop id="background-video">
+                <source src="codevideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+           
+        </section>
+        -->
+
+
+
+
+   <!-- About section -->
+  
+  <section<div id="page" class="">
+<div id="Home" class="carousel-section">
+  
+    <!-- Carousel navigation -->
+    <div class="carousel__nav">
+                <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+            </svg>
+        </span>
+    
+                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+            </svg>
+        </span>
+</section>
+    </div>
+  
+    
+    <!-- Carousel items -->
+
+    <div class="carousel-item carousel-item--1 carousel-item--video">
+        <video class="carousel-item__video" autoplay muted loop>
+          
+            <!-- <source src="https://cdn.create.vista.com/api/media/medium/436185336/stock-video-writing-java-script-source-code-development?token=" type="video/mp4"> 
+           -->
+             
+          >
+          <!-- <source src="codevideo.mp4" type="video/mp4"> ,,,,,,,,,<source src="https://videos.pexels.com/video-files/1739010/1739010-hd_1920_1080_30fps.mp4" type="video/mp4">
+           
+          <source src="https://videos.pexels.com/video-files/1739010/1739010-hd_1920_1080_30fps.mp4" type="video/mp4">
+          
+          -->
+          <source src="codevideo4.mp4" type="video/mp4">
+          
+          Your browser does not support the video tag.
+        </video>
+        <div class="carousel-item__info">
+            <div class="carousel-item__container">
+              <!--  <h2 class="carousel-item__subtitle">MARCUS THOMPSON</h2> -->
+              <!-- https://bright-brides.org/wp-content/uploads/2021/06/beautiful-venezuelan-brides-768x641.jpg -->
+              <img src="profilephoto.png" class="carousel-item__image" alt="Description of image">
+               <h1 class="carousel-item__title">CLOUD ENGINEER</h1>
+              <h1 class="carousel-item__description-top">EXPERT PROBLEM SOLVER SPECIALIZING IN CLOUD INFRASTRUCTURE DEVELOPMENT, COMMITTED TO DELIVERING RESULTS</h1>
+                <p class="carousel-item__description"> I'm Marcus Thompson, a highly skilled and versatile Cloud Engineer. This website is a showcase of my capabilities, 
+                                                        highlighting my expertise in Frontend Development, Cloud Infrastructure, and DevOps. I meticulously developed the front-end 
+                                                        of this site, built the AWS cloud infrastructure using Terraform that it’s hosted on, and implemented DevOps practices to ensure seamless
+                                                        integration, deployment, delivery, and lifecycle management. This project exemplifies my ability to take resources and deliver high-quality, 
+                                                        efficient infrastructure solutions.</p>
+                <a href="#" id="discoverMoreBtn" class="carousel-item__btn">Discover More</a>
+
+
+            </div>
+        </div>
+    </div>
+
+
+  
+  <!-- First carousel section (original) -->
+    <!-- Carousel section -->
+    <section id="Resume" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft2" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight2" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+
+        <!-- Single carousel item with multiple images -->
+        <div id="carousel" class="carousel-item active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h1 class="carousel-item__title">Resume</h1>
+                    <p class="carousel-item__description">
+                        My adaptability and problem-solving skills enable me to master new concepts quickly and consistently produce effective, high-quality solutions. <br><br>
+                        My expertise extends beyond what I have learned to include my capacity for acquiring new skills quickly,
+                        a key asset in the constantly evolving tech industy.<br><br>
+                        Explore My Resume</p>
+                    <a href="https://github.com/INTEROYAL/Portfolio-Website.git" class="carousel-item__btn" target="_blank">View Resume Document</a>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+  
+  
+  
+
+    <!-- Second carousel section -->
+    <section id="Projects" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft3" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight3" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+        <!-- Carousel items -->
+        <div class="carousel-item carousel-item--160 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Cloud Computing Projects & Capstone Project </h2>
+                    <h1 class="carousel-item__title">Projects</h1>
+                    <p class="carousel-item__description">
+
+                        (This website serves as a showcase of my expertise in Cloud Computing,
+                         DevOps, Frontend development, and my ability to design and deliver high-quality solutions.)<br><br>
+                        This section explores projects I have completed starting with the Portfolio Website you are viewing
+                        and it's Cloud Infastructure, DevOps Integration, and Frontend Development.
+                        Following this will be a summary of a travel website I developed, followed by a Engineering Capstone Project from college.<br><br>
+                         </p>
+                    
+                       
+                    <a href="https://github.com/INTEROYAL/Portfolio-Website.git" class="carousel-item__btn" target="_blank">Explore Github Repo</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="carousel-item carousel-item--162">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Portfolio Website Cloud Infastructure </h2>
+                    <h1 class="carousel-item__title">Cloud Infastructure with AWS</h1>
+                    <p class="carousel-item__description">
+                        For cloud infastructure simplicity, I choose to use Amazon S3 and AWS Cloudfront for 
+                        static website hosting due to its highly available, scalable,
+                        and cost efficiency.
+                        S3 also was chosen for its ability to serve static assets (HTML, CSS, JS) directly.
+                        To optamize websit content delivery, AWS CloudFront was used due to its low-latency.
+                        Amazon Route 53 was also used to manage the website domain name. 
+                        Lastly Terraform was used for infrastructure-as-code (IaC) to to define, provision, 
+                        and manage AWS S3 infrastructure.<br><br>
+
+                        (Visit the Cloud section for more project details)
+                    </p>
+                    <a href="#" class="carousel-item__btn">Explore Project Code</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--163">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Portfolio Website DevOps Integration  </h2>
+                    <h1 class="carousel-item__title">DevOps</h1>
+                    <p class="carousel-item__description">
+                    DevOps practices and tools were implamented into this applications development to 
+                    ensure seamless integration, deployment, delivery, and lifecycle management.<br><br>
+
+                    (Visit the DevOps section for more project details)
+                    </p>
+                    <a href="#" class="carousel-item__btn">Explore Project Code</a>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <div class="carousel-item carousel-item--161">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Portfolio Website Frontend Development </h2>
+                    <h1 class="carousel-item__title">Frontend Development with HTML, CSS, JavaScript </h1>
+                    <p class="carousel-item__description">
+                        The Frontend of this website was meticulously developed using HTML, CSS, and JS. 
+                        Much time and effort went into the details to get the visual representation I wanted
+                        from small details such as the styling of the menu to the way the whole java script responds to user requests.
+                        I wanted to create a sleek and simple website that was easy to navigate yet informative about who I am and my capabilities. <br><br>
+
+                        (Visit the Frontend section for more project details)
+
+                        
+                    </p>
+                    <a href="#" class="carousel-item__btn">Explore Project Code</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="carousel-item carousel-item--164">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Travel Website</h2>
+                    <h1 class="carousel-item__title">Travel Website </h1>
+                    <p class="carousel-item__description">
+                        This project was developed in my Cloud Bootcamp and was used as a source application for 
+                        cloud infastructure testing. 
+                        This project contains multiple coding languages such as html, css, java, along with unique features and apis. 
+                        
+                    </p>
+                    <a href="#" class="carousel-item__btn">Explore Travel Website</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--165">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">SABS</h2>
+                    <h1 class="carousel-item__title">Engineering Capstone Project</h1>
+                    <p class="carousel-item__description">
+                        • Designed and developed (SABS), an innovative device that pairs with conventional headphones, enabling users to monitor and adjust sound frequencies in the surrounding environment in real-time.<br><br>
+                        • Technologies Used: Raspberry Pi, Arduino, Linux (Ubuntu & Manjaro Distros), Windows 10 OS, RN-52 Bluetooth ADC/DAC, GitHub, CMD, AutoCAD, Equalizer API, Realtek (SST) Audio Driver.<br><br>
+                        • Programmed an Arduino microcontroller using Arduino IDE software, Python, and C++ scripting.<br><br>
+                        • Develop a wireless Raspberry Pi on Linux Ubuntu using computer architecture techniques.
+                    </p>
+                    <a href="https://docs.google.com/document/d/17aw1rjk_2qIgVimgx9KgPLQCaZhHIIvn/edit" class="carousel-item__btn" target="_blank">Explore SABS Documentation</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+      
+      
+        <!-- Third carousel section -->
+    <section id="Cloud" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft4" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight4" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+        <!-- Carousel items -->
+        <div class="carousel-item carousel-item--200 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">AWS • AZURE • GCP • TERRAFORM</h2>
+                    <h1 class="carousel-item__title">Cloud</h1>
+                   <p class="carousel-item__description">AWS, AZURE, GCP, Terraform are cloud infastructures and tools that I have learned </p>
+                    <a href="#" class="carousel-item__btn"> 
+                    <img src="awsccp.png" alt="Certification" style="width: 9vw; height: 9vw; vertical-align: middle; margin-right: 8px;">
+                        <!-- Explore Cloud  -->
+     </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--201">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Amazon Web Services</h2>
+                    <h1 class="carousel-item__title">AWS</h1>
+                    <p class="carousel-item__description">
+                        (AWS services I have learned) •
+                         (EC2) Elastic Cloud computing •
+                         (S3) Simple Storage Service •
+                         (VPC) Virtual Private Cloud •
+                         (ASG) Auto-scaling Group •
+                         (ELB) Elastic Load Balancer •
+                         (WAF) Web Application Firewall •
+                         (IAM) Identity and Access Management •
+                         (Route 53) •
+                         (DNS) Domain Name Services •
+                         (RDS) Relational Database Services •
+                         (SNS) Simple Notification Service •
+                         (EKS) Elastic Kubernetes Service •
+                         Lambda •
+                         AWS Cloudformation •
+                         Cognito •
+                         (RDS) Relational Database Services •
+                         (SQS) Simple Queue Service •
+                         Amazon Kinesis 
+                        
+    
+
+                        </p>
+                    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjqqLq4iquIAxVlT0cBHeJrPSwYABAAGgJxdQ&co=1&ase=2&gclid=Cj0KCQjwiuC2BhDSARIsALOVfBLCBIxXPLC3t4bQxMT94TBI270Ymsx_R0DD05lK8s2Bk24T5voKsK0aAqVxEALw_wcB&ohost=www.google.com&cid=CAESVuD25viHYOhqWuCfF14AJw-FcaSFc5jEek22xAAAJ7g_Sdu5l0OThMFXvKyacNOOb1LaI_VrwQ--p3goKTB57Ez5qk9FGPUyN8HoYG4sViHVQZ9PibgH&sig=AOD64_2MYupn78OayodTPA3pWi9CKvh0Ig&q&nis=4&adurl&ved=2ahUKEwjxvLW4iquIAxWNN1kFHfQ-Ox8Q0Qx6BAgIEAE" class="carousel-item__btn" target="_blank">Explore AWS</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--202">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Microsoft Azure</h2>
+                    <h1 class="carousel-item__title">AZURE</h1>
+                    <p class="carousel-item__description">
+                        AZURE services I have learned<br><br>
+
+                        (VM) Virtual Machine <br><br>
+                        (ALB) Azure Load Balancer <br><br>
+                        (VN) Virtual Network <br><br>
+                        (AS) Azure Storage 
+                    </p>
+                    <a href="https://azure.microsoft.com/en-us" class="carousel-item__btn" target="_blank">Explore AZURE</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--203">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Google Cloud Platform</h2>
+                    <h1 class="carousel-item__title">GCP</h1>
+                    <p class="carousel-item__description">
+                        GCP services I have learned <br><br> 
+                        (GCE) Google Compute Engine<br><br> 
+                        (GCS) Google Cloud Storage<br><br> 
+                        (GKE) Google Kubernetes <br><br> 
+                        Google Cloud Networking Services<br><br> 
+                    </p>
+                    <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjJ-9XsiauIAxURTkcBHfD-IpIYABAAGgJxdQ&co=1&ase=2&gclid=Cj0KCQjwiuC2BhDSARIsALOVfBJuxxwmRGQ166uHHNAMtEl9fjCOdRPaZRGfM_GaCszguM-kOzaIfJUaAmY9EALw_wcB&ohost=www.google.com&cid=CAESVuD2tTZh9V1sKrmMLk3tP_hMnKE0BeSm-U6tVTtgKWJo3cwzYlccKku2CvprQf7ifff864TRZOjdRWmx8_3i8hQPcFkatJB3vAx9afEJaXBYP9dJTzy5&sig=AOD64_0sweZ7WNkf380afm6_mqTVqy4K0g&q&nis=4&adurl&ved=2ahUKEwjL-tDsiauIAxVCF1kFHeKAHKsQ0Qx6BAgIEAE" class="carousel-item__btn" target="_blank">Explore GCP</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--204">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Terraform by HashiCorp</h2>
+                    <h1 class="carousel-item__title">Terraform</h1>
+                    <p class="carousel-item__description"> 
+                        An open-source infrastructure as code (IaC) tool used to define and provision infrastructure 
+                        resources like servers, databases, networking, and more using a high-level configuration language.
+                        Terraform was used for infrastructure-as-code (IaC) to to define, provision, 
+                        and manage AWS S3 infrastructure in this project.  </p>
+                    <a href="https://www.terraform.io/" class="carousel-item__btn" target="_blank">Explore Terraform</a>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+      
+       <!-- Second9 carousel section -->
+    <section id="DevOps" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft5" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight5" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+        <!-- Carousel items -->
+        <div class="carousel-item carousel-item--800 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">CI/CD • Github • Github-Actions • Azure DevOps • Jenkins • Docker • Kubernetes • Ansible  • Argo-CD • Prometheus • Grafana</h2>
+                    <h1 class="carousel-item__title">DevOps</h1>
+                   <p class="carousel-item__description">
+                    (This will show all the devops tools and logos, 
+                    first then show relation to project on second page, then following slides will be video clips of their use and implamentation)<br><br>
+                    (ADD IN ADO)<br><br>
+                    After completing the Cloud Computing bootcamp which included Azure Devops, I took the personal initiative to dive deeper into DevOps and 
+                    learn CI/CD methodologies and key tools which as a result were used for this applications infastructure development. <br><br>
+                    These DevOps practices and tools ensure seamless integration, automation, deployment, delivery, and lifecycle management. <br><br>
+                    
+                    Devops Plan <br><br>
+                    Repo(Github) > IaC(Terraform, CloudFormation, Ansible) > Pipeline(Jenkins, ADO, Github Actions)> 
+                    SecOps(ADO) > Containerize(Docker, Kub, Ansible) > CD(Argo) > Monitor(Cloudwatch, Prometheus, Grafana)<br><br>
+                     
+                    (GO SIMPLE SO YOU CAN HAVE A PROTOTYPE, then phase 2 do the more complex) <br><br>
+
+                    1) (AWS)  Github > Terraform > AWS  (no pipeline)
+             > (Best so far) Github > GitAct > Terraform > AWS    (AWS)  Github > Github Actions (github action given iam user permission for s3 bucket) github push trigger gitactions and deploy to AWS) (Not bad option)
+                       (AWS)  AWS Codepipeline (simple for pipeline and deployment (Security, yes))                                                       <br><br>
+       --- Pipeline                                                                                        <br><br>
+             > (Best so far) 2) (ADO) Github, ADO, link repo to pipeline, enable auto trigger, enable auto release trigger,(Optional azure monitor)
+                    (this can work for aws but requires a service connection, azure storage blob also needs storage connection)
+                    Version Control (Github) > Pipeline (ADO) > SecOps(ADO) > Prometheus Grafana or Azure Monitor (Need AWS service connection) <br><br>  
+
+AWS & ADO summary: Same options of service, must have repo, then if need pipeline must choose either github actions or ado, then deploy from pipeline to either cloud provider, or terraform 
+                   *Ideal way is to: vsc > git push > github trigger > pipeline > deploy   
+
+ (Best so far) VSC > Gitpush > Github > ADO > deploy 
+                              
+                    3) (IaC) Terraform   (complex option) ado, ado pipeline triggers terraform to create the s3 in aws (this appears to be uncessary bc ado or gitact can deploy so why go back to terraform))                                                                   <br><br>
+                                                                                                             <br><br>
+                    3) (Jenkins) VSC, push to GitHub, push to Jenkins, build and test pipeline, deploy on AWS via terraform   
+                             
+       --- Containerization
+
+                    4) (Docker) VSC > Gitpush > GitHub > Github-Actions > Dockerfile > Docker Image > Kubernetes (EKS) > Pipeline > Deploy AWS                                                        <br><br>
+                    5) (Ansible) Version Control >    
+                    
+                    
+       --- Monitoring 
+                    Prometheus   >  Grafana 
+
+            Final Designs: 
+                    1) (CI/CD)  ~  VSC > GITpush > Github > ADO > Deploy 
+                    2) (Containerize) ~ VSC > GITpush > GitHub > GitHub Actions > DockerFile > DockerImage > DockerPush(ECR) > Kub(EKS) > Deploy > Prometheus > Grafana
+                                            <br><br>
+
+                    Pipeline:(Automated Deployment) with Github, ADO, or Jenkins 
+                    (THis will automate builds, tests, and deploy to aws s3/cloudfront when an update is pushed to the repository)
+                    create github repo > github actions or jenkins to trigger pipeline when changes are pushed to main branch >
+                    In the pipeline, automate testing (for code quality and performance)and deploy website using aws cli or terraform >
+                    Invalidate CloudFront cache after every deployment to reflect changes immediately.(((?)))
+
+                    The concept is all cant be used efficiently at once, its uncessary and redudent for real office work,
+                    Ideal to have one hub for what is being done not 8 tools that have 8 logins 
+            
+                    <br><br>
+
+
+
+
+
+                   </p>
+                    <a href="#" class="carousel-item__btn">  Explore the DevOps tools and services, many of which were used in this project
+                  
+                  
+                  </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--801">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle"> Git • GitHub • GitLab • Bitbucket</h2>
+                    <h1 class="carousel-item__title">Version Control</h1>
+                    <p class="couarsel-item__description">Repository </p>
+                    <a href="#" class="carousel-item__btn">Explore Github Repository</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="carousel-item carousel-item--802">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Terraform • AWS CloudFormation</h2>
+                    <h1 class="carousel-item__title">Infastructure as Code (IaC)</h1>
+                    <p class="carousel-item__description">Managing infrastructure using code, automating infastructure management </p>
+                    <a href="#" class="carousel-item__btn">Explore the IaC used for this webpage</a>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="carousel-item carousel-item--804">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">GitHub Actions • (ADO)Azure DevOps • Jenkins • CodePipeline • ArgoCD</h2>
+                    <h1 class="carousel-item__title">Continuous Integration / Continuous Delivery (CI/CD)</h1>
+                    <p class="carousel-item__description">Application production testing via pipelines, code update and release automation</p>
+                    <a href="#" class="carousel-item__btn">Explore the CI/CD used for this webpage</a>
+                </div>
+            </div>
+        </div>
+    
+        
+
+        <div class="carousel-item carousel-item--806">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Docker • Kubernetes • (AWS)EKS</h2>
+                    <h1 class="carousel-item__title">Containerization and Orchestration</h1>
+                    <p class="carousel-item__description">Packaging applications and their dependencies into containers to ensure consistency across environments </p>
+                    <a href="#" class="carousel-item__btn">Explore the Containerization and Orchestration used for this webpageC</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--805">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Ansible</h2>
+                    <h1 class="carousel-item__title">Configuration Management</h1>
+                    <p class="carousel-item__description">Automates the management and provisioning of infrastructure to ensure consistency across environments</p>
+                    <a href="#" class="carousel-item__btn">Explore the Configuration Management used for this webpage</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--807">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle"> Prometheus • Grafana</h2>
+                    <h1 class="carousel-item__title">Monitoring</h1>
+                    <p class="carousel-item__description">Monitoring systems, applications, and infrastructure in real time to catch issues early and improve performance </p>
+                    <a href="#" class="carousel-item__btn">Explore the Moitoring used for this webpage</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--808">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">  Snyk • (SAST)SonarQube • (DAST)OWASP ZAP</h2>
+                    <h1 class="carousel-item__title">Security (DevSecOps) </h1>
+                    <p class="carousel-item__description">Ensuring that security is a shared responsibility, with automation and continuous monitoring applied to security tasks</p>
+                    <a href="#" class="carousel-item__btn">Explore the Security used for this webpage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Third carousel section -->
+    <section id="Frontend" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft6" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight6" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+        <!-- Carousel items -->
+        <div class="carousel-item carousel-item--300 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">HTML • CSS • JavaScript</h2>
+                    <h1 class="carousel-item__title">Frontend</h1>
+                   <p class="carousel-item__description">
+
+                    Multiple sandbox tools were used for frontend development 
+                    ranging from Codepen to Terraforms execptional Live Serve externsion<br><br>
+
+                    Explore some of my Frontend Develoment work
+
+                   </p>
+                   <a href="#" class="carousel-item__btn"> 
+                    <img src="frontready4.png" alt="Certification" style="width: 23vw; height:23vw ; vertical-align: middle; margin-right: 8px;">
+                        <!-- Explore Cloud  -->
+                     </a>
+     </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--301">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Frontend for this project</h2>
+                    <h1 class="carousel-item__title">Frontend Development</h1>
+                    <p class="carousel-item__description">This project has many unique elements that compose the frontend of this website</p>
+                    <a href="#" class="carousel-item__btn"></a>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div class="carousel-item carousel-item--302">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Frontend Solutions</h2>
+                    <h1 class="carousel-item__title">Code Fixes</h1>
+                    <p class="carousel-item__description">Solved numerous code fixes to achieve the desired working frontend </p>
+                    <a href="#" class="carousel-item__btn"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--303">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Sandbox</h2>
+                    <h1 class="carousel-item__title">Development Environment</h1>
+                    <p class="carousel-item__description">I have used online coding platforms such as Codepen and Integrated Development Environments such as Visual Studio (IDE)  to develop the frontend of projects</p>
+                    <a href="#" class="carousel-item__btn"></a>
+                </div>
+            </div>
+        </div>
+
+    
+    </section>
+
+    <!-- Fourth carousel section -->
+    <section id="Education" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft7" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight7" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+<!-- Carousel items -->
+
+  <div class="carousel-item carousel-item--400 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Bachelors in Computer and Electrical Engineering • Cloud Computing Education</h2>
+                    <h1 class="carousel-item__title">Education</h1>
+                    <p class="carousel-item__description">
+                        Building on my experience as an IT system network administrator, 
+                        I furthered my expertise with a degree in Computer Engineering, 
+                        followed by specialized training in Cloud Computing and DevOps.</p>
+                    <a href="#" class="carousel-item__btn" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--401 ">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Cloud Computing Education</h2>
+                    <h1 class="carousel-item__title">Cloud Computing Bootcamp</h1>
+                    <p class="carousel-item__description">Educated in Cloud Computing and DevOps</p>
+                    <a href="https://docs.google.com/document/d/1hTa37_mDVvGswT3djeWtNz9AE9gS2H4FPKMM-zAeJZI/edit" class="carousel-item__btn" target="_blank">Explore Full Cloud Computing Lesson Summary Doc</a>
+                </div>
+            </div>
+        </div>
+        
+
+<div class="carousel-item carousel-item--402">
+    <div class="carousel-item__image"></div>
+    <div class="carousel-item__info">
+        <div class="carousel-item__container">
+            <h2 class="carousel-item__subtitle">Bachelors in Computer and Electrical Engineering</h2>
+            <h1 class="carousel-item__title">Computer Engineering</h1>
+            <p class="carousel-item__description">National University - Cloud Computing Bootcamp</p>
+            <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjxm7Hiza2IAxXRR_8BHXEFAjUYABAAGgJtZA&co=1&ase=2&gclid=CjwKCAjwreW2BhBhEiwAavLwfH6oKVtAH3f5g0OpO6Q2dvYfnZR6EGXaUAy-zqu4g_7ahvyXTwRv1RoCf44QAvD_BwE&ei=EJbaZoDHFt79ptQP4YTX-Qo&ohost=www.google.com&cid=CAESVuD2wloL8VM_YZxSUVYCd3TgKUJIrMC9bmIv0lNH6TeDizRjMXATIcW2hQxZycEjsVIuk6Os2q8obVZ-Y7MbSww45ZZVNuXO5UFzfNoKUzuRdEzM-hZS&sig=AOD64_0fpX_XmqEBlKNTiowGyC6CO59paA&q&sqi=2&nis=4&adurl&ved=2ahUKEwiAj63iza2IAxXevokEHWHCNa8Q0Qx6BAgJEAE" class="carousel-item__btn" target="_blank">National University </a>
+        </div>
+    </div>
+</div>
+       
+      
+    </section>
+
+    <!-- Fifth carousel section -->
+    <section id="Solutions" class="carousel-section">
+        <!-- Carousel navigation -->
+        <div class="carousel__nav">
+            <span id="moveLeft8" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight8" class="carousel__arrow">
+                <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+        <!-- Carousel items -->
+        <div class="carousel-item carousel-item--1000 active">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">
+                        (Critical thinker, Troubleshooter, Problem solver, Teamplayer)  
+                        There is nothing I cant learn, I always figure things out and deliver quailty solutions. I show up and get the job done !</h2>
+                    <h1 class="carousel-item__title">Solutions</h1>
+                    <p class="carousel-item__description">Expert Problem-Solver with years of experience. Here are a few examples (This project itself is a demonstration of solving hundreds of problems) (This section will show problems i solved first with cloud like in class, then with this code, and other relatable examples, photo of audi </p>
+                    <a href="#" class="carousel-item__btn">Explore Solutions</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item carousel-item--1001">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Coding Solutions</h2>
+                    <h1 class="carousel-item__title">Project Frontend Solutions </h1>
+                    <p class="carousel-item__description"> A portion of the code solutions involved in this project </p>
+                    <a href="#" class="carousel-item__btn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item carousel-item--2">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle">Cloud Bootcamp</h2>
+                    <h1 class="carousel-item__title">Cloud Bootcamp</h1>
+                    <p class="carousel-item__description">This is another solution </p>
+                    <a href="#" class="carousel-item__btn">Explore Nature</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="carousel-item carousel-item--1005">
+            <div class="carousel-item__image"></div>
+            <div class="carousel-item__info">
+                <div class="carousel-item__container">
+                    <h2 class="carousel-item__subtitle"></h2>
+                    <h1 class="carousel-item__title">Audi Restoration Project</h1>
+                    <p class="carousel-item__description">I enjoy fixing things, and here are some photos from a Audi A8 restoration project </p>
+                    <a href="#" class="carousel-item__btn"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+  
+<!-- <a id="real-usage-link" target="_blank" rel="nofollow noopener" href="https://wyld.studio/">» See this solution in real usage</a> -->
+
+    <!-- ____________________________________________________________________________CAROUSEL  1 JS________________________________________________________________________________________ -->
+    <!-- Add Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- ____________________________________________________________________________CAROUSEL 1 JS________________________________________________________________________________________ -->
+    <!-- Initialize Swiper -->
+    <!-- <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3500, // Set the delay between slides in milliseconds (e.g., 5000 = 5 seconds)
+            },
+            speed: 5000, // Adjust the speed to change the duration of the slide transition (in milliseconds)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script> -->
+
+    <!-- __________________________________________________________________________________________________________________________________________________________________________________ -->
+    <!-- JS for Sticky Header and Smooth Scroll -->
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var header = document.getElementById('myHeader');
+    var page = document.getElementById('page');
+    var openMenuButton = document.getElementById('openmenu');
+    var navLinks = document.querySelectorAll('nav a');
+    var menuButton = document.getElementById('menuButton');
+    var menuText = document.getElementById('menuText');
+    var discoverMoreBtn = document.getElementById('discoverMoreBtn');
+    var emailLink = document.getElementById('emailLink');
+    var emailAddress = 'interoyal2@gmail.com';
+    var originalText = 'EMAIL';
+    var lastScrollTop = 0;
+    var menuContent = document.querySelector('.menu-content'); // Adjust this selector to your menu content
+
+    function handleScroll() {
+        page.classList.remove('menuopen');
+        var currentScrollTop = window.scrollY;
+
+        if (currentScrollTop >= 910) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+            removeNavLinks();
+        }
+
+        if (currentScrollTop > lastScrollTop) {
+            removeNavLinks();
+            if (menuButton.classList.contains('open')) {
+                menuButton.classList.remove('open');
+                menuText.textContent = "MENU";
+            }
+        }
+        lastScrollTop = currentScrollTop;
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    openMenuButton.addEventListener('click', function() {
+        header.classList.remove('sticky');
+        page.classList.toggle('menuopen');
+        page.classList.toggle('tent');
+        toggleNavLinks();
+    });
+
+    function toggleNavLinks() {
+        navLinks.forEach(function(link) {
+            link.classList.toggle('show');
+        });
+    }
+
+    function removeNavLinks() {
+        navLinks.forEach(function(link) {
+            link.classList.remove('show');
+        });
+    }
+
+    function toggleMenu() {
+        page.classList.toggle('menuopen');
+        page.classList.toggle('tent');
+        toggleNavLinks();
+    }
+
+    menuButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        toggleMenu();
+        this.classList.toggle('open');
+        if (this.classList.contains('open')) {
+            menuText.textContent = "CLOSE";
+        } else {
+            menuText.textContent = "MENU";
+        }
+    });
+
+    discoverMoreBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var currentScrollTop = window.scrollY;
+        var halfPageHeight = document.documentElement.scrollHeight / 2;
+
+        if (currentScrollTop >= halfPageHeight) {
+            stickyMenuButton.click();
+        } else {
+            header.classList.remove('sticky');
+            window.removeEventListener('scroll', handleScroll);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            setTimeout(function() {
+                menuButton.click();
+                window.addEventListener('scroll', handleScroll);
+            }, 500);
+        }
+    });
+
+    emailLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (emailLink.textContent === originalText) {
+            emailLink.textContent = emailAddress;
+            emailLink.href = `mailto:${emailAddress}`;
+        } else {
+            emailLink.textContent = originalText;
+            emailLink.href = `mailto:${emailAddress}`;
+        }
+        window.location.href = emailLink.href;
+    });
+
+    var links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var targetId = this.getAttribute('href');
+            var targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*_________________________________________________________
+     * Click Outside Menu to Close
+     * Closes the menu if clicking outside of it
+     __________________________________________________________*/
+
+    document.addEventListener('click', function(event) {
+        if (page.classList.contains('menuopen')) {
+            if (!menuButton.contains(event.target) && !menuContent.contains(event.target)) {
+                menuButton.click(); // Close the menu by triggering a click on the menu button
+            }
+        }
+    });
+
+    // Prevent clicks inside the menu content from closing the menu
+    if (menuContent) {
+        menuContent.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent closing when clicking inside the menu content
+        });
+    }
+
+});
+</script>
+
+
+
+    <!-- __________________________________________________________________________________________CAROUSEL 2________________________________________________________________________________________ -->
+  
+    <script>
+  
+    
+   // jQuery for the custom carousel
+$(document).ready(function(){
+    // Initialize the first carousel
+    $('.carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project1
+    $('#moveLeft1').click(function(){
+        var activeItem = $('#About .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project1
+    $('#moveRight1').click(function(){
+        var activeItem = $('#About .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  
+  
+  // Initialize the second carousel
+    $('#Resume .carousel-item--1').addClass('active');
+$(document).ready(function(){
+   var images = [
+               
+                'Resumep1.png',
+                'Resumep2.png',
+                'Resumep3.png'
+            ];
+            
+            var currentIndex = 0;
+
+            function updateImage(index) {
+                $('#carousel .carousel-item__image').css('background-image', 'url(' + images[index] + ')');
+            }
+
+            $('#moveLeft2').click(function(){
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage(currentIndex);
+            });
+
+            $('#moveRight2').click(function(){
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage(currentIndex);
+            });
+
+            // Initialize with the first image
+            updateImage(currentIndex);
+        });
+
+    // Initialize the second carousel
+    $('#Projects .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft3').click(function(){
+        var activeItem = $('#Projects .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight3').click(function(){
+        var activeItem = $('#Projects .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  
+   // Initialize the second carousel
+    $('#Cloud .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft4').click(function(){
+        var activeItem = $('#Cloud .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight4').click(function(){
+        var activeItem = $('#Cloud .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  
+   // Initialize the second carousel
+    $('#DevOps .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft5').click(function(){
+        var activeItem = $('#DevOps .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight5').click(function(){
+        var activeItem = $('#DevOps .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  
+  // Initialize the third carousel
+    $('#Frontend .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft6').click(function(){
+        var activeItem = $('#Frontend .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight6').click(function(){
+        var activeItem = $('#Frontend .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  // Initialize the fourth carousel
+    $('#Education .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft7').click(function(){
+        var activeItem = $('#Education .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight7').click(function(){
+        var activeItem = $('#Education .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+  // Initialize the fifth carousel
+    $('#Solutions .carousel-item--1').addClass('active');
+
+    // Left arrow click handler for Project2
+    $('#moveLeft8').click(function(){
+        var activeItem = $('#Solutions .carousel-item.active');
+        var prevItem = activeItem.prev('.carousel-item');
+        if (prevItem.length) {
+            activeItem.removeClass('active');
+            prevItem.addClass('active');
+        }
+    });
+
+    // Right arrow click handler for Project2
+    $('#moveRight8').click(function(){
+        var activeItem = $('#Solutions .carousel-item.active');
+        var nextItem = activeItem.next('.carousel-item');
+        if (nextItem.length) {
+            activeItem.removeClass('active');
+            nextItem.addClass('active');
+        }
+    });
+});
+
+    
+ 
+ </script>
+    
+  </body>
+
+</html>
+
+    <!-- __________________________________________________________________________________________________________________________________________________________________________________ -->
+    <!-- Copyright Notice -->
+    <!-- Copyright (c) 2024 by Benjamin Koehler (https://codepen.io/codesuey/pen/abPEyjo)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    
+    -->
