@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "bucket" {
-  bucket        = "testttting8389"
+  bucket        = "testttting838980"
   force_destroy = true
 }
 
