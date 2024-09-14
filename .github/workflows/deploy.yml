@@ -70,3 +70,12 @@ jobs:
       - name: Destroy Terraform
         working-directory: ./terraform
         run: terraform destroy -auto-approve
+
+
+        - name: Show Terraform State
+  working-directory: ./terraform
+  run: terraform state list
+
+- name: Show Terraform Outputs
+  working-directory: ./terraform
+  run: terraform output
