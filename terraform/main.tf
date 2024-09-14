@@ -1,5 +1,15 @@
+provider "aws" {
+  region = var.aws_region
+}
+
+variable "aws_region" {
+  description = "The AWS region to deploy the resources"
+  type        = string
+  default     = "us-east-2"  # Set your region here
+}
+
 resource "aws_s3_bucket" "bucket" {
-  bucket        = "testttting83344444338"
+  bucket        = "testttting833455444338"
   force_destroy = true
 }
 
@@ -69,7 +79,6 @@ resource "aws_s3_object" "upload_videos" {
   etag         = filemd5("${path.module}/${each.value}")
   content_type = "video/mp4"
 }
-
 
 output "website_url" {
   value = "http://${aws_s3_bucket.bucket.bucket}.s3-website-${var.aws_region}.amazonaws.com"
