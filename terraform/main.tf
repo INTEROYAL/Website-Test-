@@ -9,7 +9,7 @@ variable "aws_region" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket        = "testt111111"
+  bucket        = "testttting8332338"
   force_destroy = true
 }
 
@@ -19,7 +19,6 @@ resource "aws_s3_bucket_website_configuration" "site" {
   index_document {
     suffix = "index7latest.html"
   }
-
 
   # ... other configurations ...
 }
