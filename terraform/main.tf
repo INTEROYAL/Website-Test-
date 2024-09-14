@@ -9,7 +9,7 @@ variable "aws_region" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket        = "testttting833455445555654338"
+  bucket        = "testt8989"
   force_destroy = true
 }
 
