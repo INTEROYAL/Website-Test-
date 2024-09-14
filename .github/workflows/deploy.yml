@@ -3,14 +3,14 @@ name: Deploy and Manage Static Website to S3
 on:
   push:
     branches:
-      - master          # Deploy on push to the master branch
+      - master          # Trigger deploy on push to the master branch
     tags:
-      - 'delete-*'      # Trigger deletion on push to tags matching 'delete-*'
+      - 'delete-*'      # Trigger destroy on push to tags matching 'delete-*'
 
 jobs:
   deploy:
+    if: ${{ github.ref == 'refs/heads/master' }}  # Run deploy only if the push is to the master branch
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'branch' && github.ref == 'refs/heads/master' # Run deploy only for pushes to master branch
 
     steps:
       - name: Checkout code
@@ -44,8 +44,8 @@ jobs:
           echo "Your website is available at $website_url"
 
   destroy:
+    if: ${{ startsWith(github.ref, 'refs/tags/delete-') }}  # Run destroy only if the push is to a tag matching 'delete-*'
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && startsWith(github.ref, 'refs/tags/delete-') # Run destroy only if the ref is a tag starting with delete-
 
     steps:
       - name: Checkout code
