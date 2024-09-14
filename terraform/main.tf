@@ -9,7 +9,7 @@ variable "aws_region" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket        = "testttting833455444338"
+  bucket        = "testttting83345544554338"
   force_destroy = true
 }
 
@@ -81,5 +81,5 @@ resource "aws_s3_object" "upload_videos" {
 }
 
 output "website_url" {
-  value = "http://${aws_s3_bucket.bucket.bucket}.s3-website-${var.aws_region}.amazonaws.com"
+  value = "http://${aws_s3_bucket.bucket.bucket}.s3-website.${var.aws_region}.amazonaws.com"
 }
