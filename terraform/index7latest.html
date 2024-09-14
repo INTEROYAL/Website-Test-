@@ -1389,12 +1389,32 @@
     max-height: 700px; /* Set a maximum height for the carousel item */  
 }
 
-.carousel-item--804 .carousel-item__image {
-    background-image: url('ci-cd2.png');
-    background-size: contain; /* Ensure entire image is visible */
-    background-position: center center; /* Center the image */
-    max-height: 700px; /* Set a maximum height for the carousel item */  
+.carousel-item--804 {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow items to wrap if the screen is smaller */
 }
+
+.carousel-item--804 .carousel-item__info {
+    order: 1; /* Ensure this appears first (on the left) */
+    flex: 1; /* Take up available space */
+    max-width: 40%; /* Limit to 50% width */
+}
+
+.carousel-item--804 .carousel-item__video {
+    order: 2; /* Ensure this appears second (on the right) */
+    flex: 1; /* Take up available space */
+    max-width: 60%; /* Limit to 50% width */
+    text-align: right; /* Align video to the right within its container */
+}
+
+.carousel-item__media {
+    width: 100%; /* Make video fill its container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 700px; /* Limit video height */
+}
+
 
 .carousel-item--805 .carousel-item__image {
     background-image: url('ansible.png');
@@ -2121,7 +2141,6 @@ AWS & ADO summary: Same options of service, must have repo, then if need pipelin
         
 
         <div class="carousel-item carousel-item--804">
-            <div class="carousel-item__image"></div>
             <div class="carousel-item__info">
                 <div class="carousel-item__container">
                     <h2 class="carousel-item__subtitle">GitHub Actions • (ADO)Azure DevOps • Jenkins • CodePipeline • ArgoCD</h2>
@@ -2130,8 +2149,14 @@ AWS & ADO summary: Same options of service, must have repo, then if need pipelin
                     <a href="#" class="carousel-item__btn">Explore the CI/CD used for this webpage</a>
                 </div>
             </div>
+            <div class="carousel-item__video">
+                <video autoplay loop muted playsinline class="carousel-item__media">
+                    <source src="dopsvid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-    
+        
         
 
         <div class="carousel-item carousel-item--806">
