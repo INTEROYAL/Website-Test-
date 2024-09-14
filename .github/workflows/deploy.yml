@@ -34,5 +34,8 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Output Website URL
+        working-directory: ./terraform
+        id: terraform
         run: |
-          echo "Your website is available at http://your-bucket-name.s3-website-us-east-2.amazonaws.com"
+          website_url=$(terraform output -raw website_url)
+          echo "Your website is available at $website_url"
